@@ -1,17 +1,24 @@
+
+
 class Sol
 {
     int isPossible (String S)
     {
-        HashMap<Character,Integer>map=new HashMap<>();
-        for(char c:S.toCharArray()){
-            map.put(c,map.getOrDefault(c,0)+1);
+        HashMap<Character, Integer>  map = new HashMap<>();
+        for (int i = 0; i<S.length(); i++){
+            char ch = S.charAt(i);
+            map.put(ch, map.getOrDefault(ch,0)+1);
         }
-        int oddcount=0;
-        for(int count:map.values()){
-            if(count%2!=0){
-                oddcount++;
+        int odd_count = 0;
+        for (int i : map.values()){
+            if (i%2 != 0){
+                odd_count ++;
             }
         }
-        return oddcount<=1 ? 1:0;
+        
+        if (odd_count <= 1){
+            return 1;
+        }
+        return 0;
     }
 }
